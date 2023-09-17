@@ -1,23 +1,15 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Invalid argument count\n");
-        return 1;
+    for (int a = argc - 1; a > 0; a--) {
+        char *chorrada = argv[a];
+        size_t end = strlen(chorrada) - 1;
+
+        for (int i = (int) end; i >= 0; i--) {
+            printf("%c", chorrada[i]);
+        }
+        printf(" ");
     }
-
-    char *chorrada = argv[1];
-
-    while(*chorrada != '\0') {
-        chorrada++;
-    }
-
-    chorrada--;
-
-    while (*chorrada != '\0') {
-        printf("%c", *chorrada);
-        chorrada--;
-    }
-
     return 0;
 }
